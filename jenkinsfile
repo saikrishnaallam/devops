@@ -1,0 +1,16 @@
+# Creating Pipeline for Devops Project in Jenkins
+Pipeline{
+  agent any
+    parameters{
+              string(name: 'Version',
+              defaultValue: 'devops-3.0',
+              description: 'Devops Project')
+    }
+    stages{
+          stage('checkout'){
+          steps{
+          checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/saikrishnaallam/devops.git']]])
+          }
+          }
+    }
+}
