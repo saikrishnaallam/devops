@@ -1,4 +1,3 @@
-# Creating Pipeline for Devops Project in Jenkins
 Pipeline{
   agent any
     parameters{
