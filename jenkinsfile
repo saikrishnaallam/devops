@@ -1,18 +1,23 @@
 pipeline {
-
   agent any
-
     parameters {
               string(name: 'Version',
               defaultValue: 'devops-3.0',
               description: 'Devops Project')
-              }
-    	stages {
-        		  stage('checkout'){
-          			      steps
-				      {
-          					checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/saikrishnaallam/devops.git']]])
-         				}
+    }
+    stages {
+          stage('checkout') {
+          steps {
+          checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/saikrishnaallam/devops.git']]])
+          }
+          }
+          stage('Build') {
+          steps {
+            script {
+            mvn -f /var/lib/jenkins/workspace/Maven-pipeline/pom.xml install
+            }
+
+          }
           }
     }
 }
