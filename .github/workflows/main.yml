@@ -16,7 +16,3 @@ steps:
   - name: Run ansible-lint
   # uses: ansible-community/ansible-lint-action@ba54de22a6edeea3aa385cd8c5f20ec1f960a30b
     uses: ansible-community/ansible-lint-action@v6
-    with: 
-    # Arguments to be passed to the ansible-lint.
-
-    args: # optional, default is .
